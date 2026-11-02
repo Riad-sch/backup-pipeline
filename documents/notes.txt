@@ -1,0 +1,3 @@
+Projet : Backup Pipeline
+Objectif : Automatiser les sauvegardes avec GitHub Actions.
+Version : 1.0
