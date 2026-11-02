@@ -1,0 +1,24 @@
+
+name: Sauvegarde automatique
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Recuperer les fichiers
+        uses: actions/checkout@v4
+
+      - name: Creer une archive ZIP
+        run: zip -r sauvegarde.zip documents/
+
+      - name: Stocker la sauvegarde
+        uses: actions/upload-artifact@v4
+        with:
+          name: backup-documents
+          path: sauvegarde.zip
+          retention-days: 7
